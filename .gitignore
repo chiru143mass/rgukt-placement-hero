@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+dist/
+
+# Env files
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
