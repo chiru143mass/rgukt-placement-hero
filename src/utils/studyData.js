@@ -260,6 +260,63 @@ export const dsaRoadmap = [
 }`
       }
     ]
+  },
+  {
+    id: "heaps-hashing",
+    title: "7. Heaps & Hashing (Day 51-57)",
+    difficulty: "Advanced",
+    description: "Master priority access structures and hashing optimization strategies. Crucial for heavy searching problems.",
+    concepts: [
+      "Heap: Complete binary tree. Max-Heap has parent >= children. Min-Heap has parent <= children.",
+      "Hash Map: Uses a hash function to map keys to bucket indices. Resolve collisions using chaining."
+    ],
+    questions: [
+      {
+        title: "Kth Largest Element",
+        platform: "LeetCode 215",
+        description: "Find the kth largest element in an unsorted array.",
+        logic: "Use a Min-Heap of size k. Iterate through array, adding elements to the heap. If heap size exceeds k, pop the min element. The root will be the kth largest.",
+        code: `// Simple sort implementation for conceptual clarity
+function findKthLargest(nums, k) {
+  nums.sort((a, b) => b - a);
+  return nums[k - 1];
+}`
+      }
+    ]
+  },
+  {
+    id: "backtracking",
+    title: "8. Backtracking & Recursion (Day 58-65)",
+    difficulty: "Advanced",
+    description: "Solve problems recursively by trying to build a solution incrementally, removing options that fail to satisfy constraints.",
+    concepts: [
+      "State Space Tree: Depth first traversal of all potential paths.",
+      "Pruning: Stopping search branches early when constraints are violated."
+    ],
+    questions: [
+      {
+        title: "Permutations",
+        platform: "LeetCode 46",
+        description: "Given an array of distinct integers, return all possible permutations.",
+        logic: "Use recursion. Swap elements dynamically to explore branches, backtracking by swapping them back.",
+        code: `function permute(nums) {
+  const result = [];
+  function backtrack(start) {
+    if (start === nums.length) {
+      result.push([...nums]);
+      return;
+    }
+    for (let i = start; i < nums.length; i++) {
+      [nums[start], nums[i]] = [nums[i], nums[start]];
+      backtrack(start + 1);
+      [nums[start], nums[i]] = [nums[i], nums[start]]; // backtrack
+    }
+  }
+  backtrack(0);
+  return result;
+}`
+      }
+    ]
   }
 ];
 
@@ -393,6 +450,48 @@ export const aptitudeData = [
         explanation: "Total outcomes (S) = {HH, HT, TH, TT} -> Total = 4.\nFavorable outcomes (getting at least 1 head) = {HH, HT, TH} -> Total = 3.\nProbability = 3/4."
       }
     ]
+  },
+  {
+    id: "ratios-averages",
+    title: "Ratios, Partnerships & Averages",
+    formulas: [
+      "Ratio A:B represents comparative value. If A:B and B:C, combine to form A:B:C.",
+      "Partnership: Profit Share = Investment Ratio × Time Period.",
+      "Average = Sum of all observations / Total number of observations."
+    ],
+    shortcuts: "If a person travels equal distances at speeds x and y, the average speed is 2xy/(x+y).",
+    quiz: [
+      {
+        question: "A and B invest Rs. 12000 and Rs. 16000 respectively in a business. Find the share of A in a profit of Rs. 7000 at the end of the year.",
+        options: ["Rs. 3000", "Rs. 3500", "Rs. 4000", "Rs. 4500"],
+        answer: 0,
+        explanation: "Investment ratio A:B = 12000 : 16000 = 3:4.\nProfit share of A = (3/7) × 7000 = Rs. 3000."
+      },
+      {
+        question: "The average of 5 consecutive numbers is 20. Find the largest number.",
+        options: ["20", "21", "22", "23"],
+        answer: 2,
+        explanation: "Let the consecutive numbers be x-2, x-1, x, x+1, x+2.\nTheir sum is 5x, so Average = 5x / 5 = x.\nx = 20.\nLargest number = x + 2 = 22."
+      }
+    ]
+  },
+  {
+    id: "numbers-percent",
+    title: "Number Systems & Percentages",
+    formulas: [
+      "Divisibility rule of 3: Sum of digits must be divisible by 3.",
+      "Percentage Increase = (Increase / Original) × 100.",
+      "Percentage Decrease = (Decrease / Original) × 100."
+    ],
+    shortcuts: "To find x% of y, calculate (x × y) / 100.",
+    quiz: [
+      {
+        question: "If 20% of a number is 80, what is 30% of that number?",
+        options: ["100", "110", "120", "130"],
+        answer: 2,
+        explanation: "20% of N = 80 -> N = (80 / 20) × 100 = 400.\n30% of 400 = (30 × 400) / 100 = 120."
+      }
+    ]
   }
 ];
 
@@ -500,6 +599,22 @@ export const verbalData = [
         ],
         answer: 1,
         explanation: "Applying rules: 'am writing' (present continuous) changes to 'was writing' (past continuous), 'I' changes to 'he', and 'now' changes to 'then'. Hence: 'He said that he was writing a letter then.'"
+      }
+    ]
+  },
+  {
+    id: "comprehension",
+    title: "Comprehension & Vocabulary",
+    rules: [
+      "Rule 1: Scan the comprehension questions first before reading the passage to know what details to search for.",
+      "Rule 2: Synonyms represent words with identical meanings; Antonyms represent opposites."
+    ],
+    quiz: [
+      {
+        question: "Find the synonym of 'Industrious':",
+        options: ["Lazy", "Hardworking", "Quiet", "Intelligent"],
+        answer: 1,
+        explanation: "'Industrious' means diligent and hardworking. Hence, the synonym is 'Hardworking'."
       }
     ]
   }
