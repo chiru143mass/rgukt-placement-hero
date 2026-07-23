@@ -205,6 +205,61 @@ export const dsaRoadmap = [
 }`
       }
     ]
+  },
+  {
+    id: "trees-graphs",
+    title: "5. Trees & Graphs (Day 33-40)",
+    difficulty: "Advanced",
+    description: "Master hierarchical structures and network nodes. Essential for complex problem solving.",
+    concepts: [
+      "Binary Tree: Each node has at most two children (left and right).",
+      "Depth First Search (DFS): Traverse nodes deeply before shifting laterally. Uses Recursion/Stack.",
+      "Breadth First Search (BFS): Explore nodes level by level. Uses Queue."
+    ],
+    questions: [
+      {
+        title: "Maximum Depth of Binary Tree",
+        platform: "LeetCode 104",
+        description: "Find the maximum depth (number of nodes along the longest path) of a binary tree.",
+        logic: "Use recursion. Maximum depth of a tree is 1 + the maximum depth of its left and right subtrees.",
+        code: `function maxDepth(root) {
+  if (root === null) return 0;
+  let leftDepth = maxDepth(root.left);
+  let rightDepth = maxDepth(root.right);
+  return Math.max(leftDepth, rightDepth) + 1;
+}`
+      }
+    ]
+  },
+  {
+    id: "dynamic-programming",
+    title: "6. Dynamic Programming (Day 41-50)",
+    difficulty: "Advanced",
+    description: "Learn optimization techniques. Solve complex problems by breaking them down into overlapping subproblems.",
+    concepts: [
+      "Memoization: Top-down approach using caching (recursion + object).",
+      "Tabulation: Bottom-up approach using arrays (iteration).",
+      "Subproblems: Reusing previously computed sub-state values."
+    ],
+    questions: [
+      {
+        title: "Climbing Stairs",
+        platform: "LeetCode 70",
+        description: "It takes n steps to reach the top. You can climb 1 or 2 steps each time. In how many distinct ways can you climb?",
+        logic: "This is a Fibonacci sequence. The number of ways to reach step n is the sum of ways to reach step (n-1) and step (n-2).",
+        code: `function climbStairs(n) {
+  if (n <= 2) return n;
+  let first = 1;
+  let second = 2;
+  for (let i = 3; i <= n; i++) {
+    let third = first + second;
+    first = second;
+    second = third;
+  }
+  return second;
+}`
+      }
+    ]
   }
 ];
 
@@ -290,6 +345,54 @@ export const aptitudeData = [
         explanation: "Average Speed = 2xy / (x + y) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/hr."
       }
     ]
+  },
+  {
+    id: "interest",
+    title: "Simple & Compound Interest",
+    formulas: [
+      "Simple Interest (SI) = (P × R × T) / 100",
+      "Compound Interest (CI) = P × (1 + R/100)^T - P",
+      "Amount (A) = P + SI (or A = P × (1 + R/100)^T for CI)"
+    ],
+    shortcuts: "If a sum of money doubles in T years at Simple Interest, the rate of interest is R = 100/T %.",
+    quiz: [
+      {
+        question: "A sum of money doubles in 8 years at Simple Interest. What is the rate of interest?",
+        options: ["10%", "12.5%", "15%", "20%"],
+        answer: 1,
+        explanation: "Using the shortcut R = 100/T %:\nR = 100 / 8 = 12.5%."
+      },
+      {
+        question: "Find the Simple Interest on Rs. 5000 at 10% per annum for 3 years.",
+        options: ["Rs. 1000", "Rs. 1200", "Rs. 1500", "Rs. 1800"],
+        answer: 2,
+        explanation: "SI = (P × R × T) / 100 = (5000 × 10 × 3) / 100 = Rs. 1500."
+      }
+    ]
+  },
+  {
+    id: "probability",
+    title: "P&C and Probability",
+    formulas: [
+      "nPr = n! / (n - r)! (Permutations - Arrangement)",
+      "nCr = n! / (r! × (n - r)!) (Combinations - Selection)",
+      "Probability P(A) = Number of Favorable Outcomes / Total Number of Outcomes"
+    ],
+    shortcuts: "0! = 1, and probability of an event always lies between 0 and 1 (inclusive).",
+    quiz: [
+      {
+        question: "In how many different ways can the letters of the word 'CAT' be arranged?",
+        options: ["3 ways", "6 ways", "9 ways", "12 ways"],
+        answer: 1,
+        explanation: "The word 'CAT' has 3 distinct letters. \nNumber of arrangements = 3! = 3 × 2 × 1 = 6 ways."
+      },
+      {
+        question: "Two coins are tossed simultaneously. What is the probability of getting at least one head?",
+        options: ["1/4", "1/2", "3/4", "1"],
+        answer: 2,
+        explanation: "Total outcomes (S) = {HH, HT, TH, TT} -> Total = 4.\nFavorable outcomes (getting at least 1 head) = {HH, HT, TH} -> Total = 3.\nProbability = 3/4."
+      }
+    ]
   }
 ];
 
@@ -347,6 +450,56 @@ export const verbalData = [
         ],
         answer: 1,
         explanation: "The active sentence is in simple past. The passive voice structure for simple past is 'was/were + past participle' -> 'was cooked by the chef'."
+      }
+    ]
+  },
+  {
+    id: "prepositions",
+    title: "Prepositions & Conjunctions",
+    rules: [
+      "Rule 1: 'Since' is used for a specific point in time; 'For' is used for a duration. (e.g., 'since 2010', 'for 5 years')",
+      "Rule 2: 'Between' is used for two entities; 'Among' is used for three or more. (e.g., 'between John and Mary', 'among all students')",
+      "Rule 3: Conjunctions like 'Although' should be followed by 'yet' or a comma, not 'but'. (e.g., 'Although he worked hard, he failed')"
+    ],
+    quiz: [
+      {
+        question: "Fill in the blank: 'He has been studying in this college ______ three years.'",
+        options: ["since", "for", "from", "during"],
+        answer: 1,
+        explanation: "'Three years' is a duration, so we must use 'for' according to Rule 1."
+      },
+      {
+        question: "Choose the correct sentence:",
+        options: [
+          "Divide the sweets between the three children.",
+          "Divide the sweets among the three children.",
+          "Divide the sweets in the middle of the three children.",
+          "Divide the sweets inside the three children."
+        ],
+        answer: 1,
+        explanation: "Since there are three children (more than two), we must use 'among' according to Rule 2."
+      }
+    ]
+  },
+  {
+    id: "speech",
+    title: "Direct & Indirect Speech",
+    rules: [
+      "Rule 1: If the reporting verb is in past tense, the tenses inside the quotation marks change to past forms. (e.g., 'is' becomes 'was')",
+      "Rule 2: Pronouns change according to the subject/object of the reporting verb.",
+      "Rule 3: Words indicating nearness in time/place change to words indicating distance. (e.g., 'now' becomes 'then', 'here' becomes 'there')"
+    ],
+    quiz: [
+      {
+        question: "Convert to Indirect: 'He said, \"I am writing a letter now.\"'",
+        options: [
+          "He said that he is writing a letter now.",
+          "He said that he was writing a letter then.",
+          "He said that I was writing a letter then.",
+          "He said that he was writing a letter now."
+        ],
+        answer: 1,
+        explanation: "Applying rules: 'am writing' (present continuous) changes to 'was writing' (past continuous), 'I' changes to 'he', and 'now' changes to 'then'. Hence: 'He said that he was writing a letter then.'"
       }
     ]
   }
